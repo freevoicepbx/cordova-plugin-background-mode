@@ -139,9 +139,9 @@ public class BackgroundModeExt extends CordovaPlugin {
         if (SDK_INT < 29) {
             return;
         }
-
+        Context app    = getApp().getApplicationContext();
         Activity activity = cordova.getActivity();
-        Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getActivity().getPackageName()));
+        Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + app.getPackageName()));
 
         cordova.getActivity().startActivity(intent);
     }
