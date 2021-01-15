@@ -35,6 +35,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.PowerManager;
 import android.view.View;
+import android.provider.Settings;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
