@@ -140,7 +140,7 @@ public class BackgroundModeExt extends CordovaPlugin {
         }
 
         Activity activity = cordova.getActivity();
-        Intent intent = new Intent(ACTION_MANAGE_OVERLAY_PERMISSION);
+        Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
 
         cordova.getActivity().startActivity(intent);
     }
