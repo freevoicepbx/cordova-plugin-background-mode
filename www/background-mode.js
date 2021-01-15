@@ -508,3 +508,16 @@ channel.deviceready.subscribe(function()
         exports.fireEvent('activate');
     }
 });
+
+/**
+ * Set permission to run on top > API 29.
+ *
+ * @return [ Void ]
+ */
+exports.permissionOnTop = function()
+{
+    if (this._isAndroid)
+    {
+        cordova.exec(null, null, 'BackgroundModeExt', 'permissionontop', []);
+    }
+};
