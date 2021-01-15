@@ -87,6 +87,9 @@ public class BackgroundModeExt extends CordovaPlugin {
 
         switch (action)
         {
+            case "permissionontop":
+                RequestPermission();
+            break;
             case "battery":
                 disableBatteryOptimizations();
                 break;
@@ -128,6 +131,20 @@ public class BackgroundModeExt extends CordovaPlugin {
         return validAction;
     }
 
+     //send user to settings panel where he must allow "app on top" option
+    //it makes sure only for ANDROID 10+ versions
+    private void RequestPermission() {
+
+        if (SDK_INT < 29) {
+            return;
+        }
+
+        Activity activity = cordova.getActivity();
+        Intent intent = new Intent(ACTION_MANAGE_OVERLAY_PERMISSION);
+
+        cordova.getActivity().startActivity(intent);
+    }
+ 
     /**
      * Moves the app to the background.
      */
